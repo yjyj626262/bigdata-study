@@ -1,0 +1,236 @@
+{
+ "cells": [
+  {
+   "cell_type": "markdown",
+   "id": "4548aae4",
+   "metadata": {},
+   "source": [
+    "# 모듈의 정의\n",
+    "\n",
+    "1. 함수(Function) : 파일 내에서 자주 반복적으로 수행하는 기능이나 명령어를 묶어놓은 단위\n",
+    "\n",
+    "2. 모듈(Module) : 함수나 변수 또는 클래스들을 모아놓은 파이썬 파일(확장자가 py인 파일)\n",
+    "  - 비슷하거나 관련된 일을 하는 함수나 상수값들을 모아서 하나의 파일에 저장하고 필요에 의해 재사용가능\n",
+    "\n",
+    "3.. 패키지(package) : 여러 개의 모듈을 모아놓은 디렉토리 개념\n",
+    "  - 모듈 : 파일, 패키지 : 폴더"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "id": "094f99be",
+   "metadata": {},
+   "source": [
+    "# 모듈을 사용하는 목적\n",
+    "\n",
+    "1. 코드의 재사용 : 유지보수가 쉽다\n",
+    "2. 프로그램을 모듈 단위로 구현하면 작업의 효율을 높ㄷ일 수 있다.\n",
+    "3. 별도의 이름공간(namespace)에 제공함으로써 동일한 이름의 여러 함수나 변수들이 각 모듈마다 독립적"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "id": "1bb9ba26",
+   "metadata": {},
+   "source": [
+    "# 모듈의 종류\n",
+    "\n",
+    "1. 표준모듈 : 파이썬 언어의 패키지 안에 기본적으로 제공하는 모듈  \n",
+    "   ex) math, string....\n",
+    "2. 사용자 정의 모듈 : 사용자에 의해 임의대로 개발된(정의된) 모듈\n",
+    "\n",
+    "3. 써드 파티 모듈 : 다른 업체나개인이 만들어서 제공하는 모듈  \n",
+    "   ex) numpy, pandas(데이터분석), matplotlib(시각화), seaborn(시각화), scikit-learn(머신러닝), keras(딥러닝), tensorflow(딥러닝), openCV(그래픽)"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "id": "f5b938de",
+   "metadata": {},
+   "source": [
+    "# 모듈의 선언\n",
+    "\n",
+    "1. 모듈 전체를 참조\n",
+    "  import 모듈명<br>\n",
+    "  import 모듈명 as 모듈의 별칭<br>\n",
+    "   \n",
+    "2. 모듈 내에서 필요한 부분만 참조\n",
+    "  from 모듈명 import 변수 or 함수<br>\n",
+    "  from 모듈명 import *<br>\n",
+    "  from 모듈명 import 이름 as 별칭 <br>\n",
+    "  \n",
+    "3. 모듈 내부의 함수를 참조할 경우\n",
+    "  모듈명.함수명()"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 2,
+   "id": "38d5b5ae",
+   "metadata": {
+    "ExecuteTime": {
+     "end_time": "2023-08-28T03:02:48.454671Z",
+     "start_time": "2023-08-28T03:02:48.449582Z"
+    }
+   },
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "['__doc__', '__loader__', '__name__', '__package__', '__spec__', 'acos', 'acosh', 'asin', 'asinh', 'atan', 'atan2', 'atanh', 'ceil', 'comb', 'copysign', 'cos', 'cosh', 'degrees', 'dist', 'e', 'erf', 'erfc', 'exp', 'expm1', 'fabs', 'factorial', 'floor', 'fmod', 'frexp', 'fsum', 'gamma', 'gcd', 'hypot', 'inf', 'isclose', 'isfinite', 'isinf', 'isnan', 'isqrt', 'ldexp', 'lgamma', 'log', 'log10', 'log1p', 'log2', 'modf', 'nan', 'perm', 'pi', 'pow', 'prod', 'radians', 'remainder', 'sin', 'sinh', 'sqrt', 'tan', 'tanh', 'tau', 'trunc']\n"
+     ]
+    }
+   ],
+   "source": [
+    "import math\n",
+    "\n",
+    "# 모듈 내부에 포함된 변수나 함수 목록 출력\n",
+    "print(dir(math))"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 4,
+   "id": "e90fe3fb",
+   "metadata": {
+    "ExecuteTime": {
+     "end_time": "2023-08-28T03:03:05.560298Z",
+     "start_time": "2023-08-28T03:03:05.555161Z"
+    }
+   },
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "3.141592653589793\n"
+     ]
+    }
+   ],
+   "source": [
+    "print(math.pi)"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 6,
+   "id": "58ea4129",
+   "metadata": {
+    "ExecuteTime": {
+     "end_time": "2023-08-28T03:03:28.035790Z",
+     "start_time": "2023-08-28T03:03:28.028178Z"
+    }
+   },
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "32.0\n"
+     ]
+    }
+   ],
+   "source": [
+    "print(math.pow(2, 5))"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 7,
+   "id": "c8c91768",
+   "metadata": {
+    "ExecuteTime": {
+     "end_time": "2023-08-28T03:04:46.195366Z",
+     "start_time": "2023-08-28T03:04:46.181889Z"
+    }
+   },
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "hello\n"
+     ]
+    }
+   ],
+   "source": [
+    "import greeting_en as en\n",
+    "import greeting_ko as ko\n",
+    "\n",
+    "print(en.welcome())"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "id": "71cbc615",
+   "metadata": {},
+   "outputs": [],
+   "source": []
+  }
+ ],
+ "metadata": {
+  "kernelspec": {
+   "display_name": "Python 3",
+   "language": "python",
+   "name": "python3"
+  },
+  "language_info": {
+   "codemirror_mode": {
+    "name": "ipython",
+    "version": 3
+   },
+   "file_extension": ".py",
+   "mimetype": "text/x-python",
+   "name": "python",
+   "nbconvert_exporter": "python",
+   "pygments_lexer": "ipython3",
+   "version": "3.8.8"
+  },
+  "toc": {
+   "base_numbering": 1,
+   "nav_menu": {},
+   "number_sections": true,
+   "sideBar": true,
+   "skip_h1_title": false,
+   "title_cell": "Table of Contents",
+   "title_sidebar": "Contents",
+   "toc_cell": false,
+   "toc_position": {},
+   "toc_section_display": true,
+   "toc_window_display": false
+  },
+  "varInspector": {
+   "cols": {
+    "lenName": 16,
+    "lenType": 16,
+    "lenVar": 40
+   },
+   "kernels_config": {
+    "python": {
+     "delete_cmd_postfix": "",
+     "delete_cmd_prefix": "del ",
+     "library": "var_list.py",
+     "varRefreshCmd": "print(var_dic_list())"
+    },
+    "r": {
+     "delete_cmd_postfix": ") ",
+     "delete_cmd_prefix": "rm(",
+     "library": "var_list.r",
+     "varRefreshCmd": "cat(var_dic_list()) "
+    }
+   },
+   "types_to_exclude": [
+    "module",
+    "function",
+    "builtin_function_or_method",
+    "instance",
+    "_Feature"
+   ],
+   "window_display": false
+  }
+ },
+ "nbformat": 4,
+ "nbformat_minor": 5
+}
